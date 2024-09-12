@@ -1,5 +1,5 @@
 // Select the video element and control elements
-const video = document.querySelector('.viewer');
+const video = document.querySelector('.player__video');
 const playerButton = document.querySelector('.player__button');
 const rewindButton = document.querySelector('.rewind');
 const skipButton = document.querySelector('.skip');
@@ -10,41 +10,38 @@ const progressFilled = document.querySelector('.progress__filled');
 
 // Initialize video player settings
 function initializePlayer() {
-  // Set initial volume and playback speed
   video.volume = volumeInput.value;
   video.playbackRate = playbackRateInput.value;
-  
-  // Set initial progress bar width to 50%
-  progressFilled.style.width = '50%';
+  updateProgress();
 }
 
-
+// Function to handle play/pause toggle
 function togglePlayPause() {
   if (video.paused) {
     video.play();
-    playerButton.textContent = '❚ ❚'; 
+    playerButton.textContent = '❚ ❚'; // Pause icon
   } else {
     video.pause();
-    playerButton.textContent = '►';
+    playerButton.textContent = '►'; // Play icon
   }
 }
 
-
+// Function to rewind video by 10 seconds
 function rewind() {
-  video.currentTime -= 10;
+  video.currentTime = Math.max(0, video.currentTime - 10);
 }
 
-
+// Function to skip video by 25 seconds
 function skip() {
-  video.currentTime += 25;
+  video.currentTime = Math.min(video.duration, video.currentTime + 25);
 }
 
-
+// Function to update volume
 function updateVolume() {
   video.volume = volumeInput.value;
 }
 
-
+// Function to update playback speed
 function updatePlaybackRate() {
   video.playbackRate = playbackRateInput.value;
 }
@@ -63,5 +60,5 @@ volumeInput.addEventListener('input', updateVolume);
 playbackRateInput.addEventListener('input', updatePlaybackRate);
 video.addEventListener('timeupdate', updateProgress);
 
-
+// Initialize the player with the desired settings
 initializePlayer();
