@@ -18,33 +18,33 @@ function initializePlayer() {
   progressFilled.style.width = '50%';
 }
 
-// Function to handle play/pause toggle
+
 function togglePlayPause() {
   if (video.paused) {
     video.play();
-    playerButton.textContent = '❚ ❚'; // Pause icon
+    playerButton.textContent = '❚ ❚'; 
   } else {
     video.pause();
-    playerButton.textContent = '►'; // Play icon
+    playerButton.textContent = '►';
   }
 }
 
-// Function to rewind video by 10 seconds
+
 function rewind() {
   video.currentTime -= 10;
 }
 
-// Function to skip video by 25 seconds
+
 function skip() {
   video.currentTime += 25;
 }
 
-// Function to update volume
+
 function updateVolume() {
   video.volume = volumeInput.value;
 }
 
-// Function to update playback speed
+
 function updatePlaybackRate() {
   video.playbackRate = playbackRateInput.value;
 }
@@ -63,5 +63,5 @@ volumeInput.addEventListener('input', updateVolume);
 playbackRateInput.addEventListener('input', updatePlaybackRate);
 video.addEventListener('timeupdate', updateProgress);
 
-// Initialize the player with the desired settings
+
 initializePlayer();
