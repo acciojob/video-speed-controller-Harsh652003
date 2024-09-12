@@ -2,20 +2,35 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Video Speed Scrubber</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Custom Video Player</title>
 </head>
 <body>
 
   <div class="wrapper">
-    <video class="flex" width="765" height="430" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" controls></video>
-    <div class="speed">
-      <div class="speed-bar">1×</div>
+    <video class="viewer" width="765" height="430" src="https://www.w3schools.com/html/mov_bbb.mp4"></video>
+    
+    <div class="controls">
+      <!-- Play/Pause Button -->
+      <button class="button player__button">❚ ❚</button>
+      
+      <!-- Rewind and Skip Buttons -->
+      <button class="button rewind">« 10s</button>
+      <button class="button skip">25s »</button>
+      
+      <!-- Volume Control -->
+      <label for="volume">Volume</label>
+      <input type="range" name="volume" min="0" max="1" step="0.05" value="0.75" data-sizing="">
+      
+      <!-- Playback Speed Control -->
+      <label for="playbackRate">Playback Speed</label>
+      <input type="range" name="playbackRate" min="0.5" max="2" step="0.1" value="1" data-sizing="">
+      
+      <!-- Progress Bar -->
+      <div class="progress">
+        <div class="progress__filled"></div>
+      </div>
     </div>
-  </div>
-
-<script  src="./script.js">
-  //Your code goes here
-</script>
+  
+  <script src="script.js"></script>
 </body>
 </html>
