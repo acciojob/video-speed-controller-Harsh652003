@@ -1,6 +1,6 @@
 // Select the video element and control elements
 const video = document.querySelector('.player__video');
-const playerButton = document.querySelector('.player__button');
+const playerButton = document.querySelector('.toggle');
 const rewindButton = document.querySelector('.rewind');
 const skipButton = document.querySelector('.skip');
 const volumeInput = document.querySelector('input[name="volume"]');
